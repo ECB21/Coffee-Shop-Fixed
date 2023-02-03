@@ -14604,7 +14604,7 @@ table.insert(cors,sandbox(Script1265,function()
 wait(0.2)
 script.Parent = game.ServerScriptService
 
-local modelName = "coffee shop" -- Replace this with the name of the model you want to keep a backup of.
+local modelName = "cofeshop" -- Replace this with the name of the model you want to keep a backup of.
 
 local function backupModel()
 	local model = game.Workspace:FindFirstChild(modelName)
