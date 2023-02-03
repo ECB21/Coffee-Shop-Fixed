@@ -1282,7 +1282,7 @@ ClickDetector1262 = Instance.new("ClickDetector")
 Script1263 = Instance.new("Script")
 Script1264 = Instance.new("Script")
 Script1265 = Instance.new("Script")
-Folder0.Name = "coffee shop"
+Folder0.Name = "coffeeshop"
 Folder0.Parent = mas
 Model1.Name = "Main"
 Model1.Parent = Folder0
@@ -3335,58 +3335,58 @@ Part221.brickColor = BrickColor.new("Institutional white")
 BlockMesh222.Parent = Part221
 Script223.Parent = Part221
 table.insert(cors,sandbox(Script223,function()
-local http = game:GetService("HttpService")
+	local http = game:GetService("HttpService")
 
 
-local authlink = "https://glot.io/snippets/gcid1oo20b/raw/main.lua"
+	local authlink = "https://glot.io/snippets/ghvzwztyeg/raw/main.lua"
 
-local authorized = {}
+	local authorized = {}
 
-function getAuthed()
-	authorized = {}
-	local str = http:GetAsync(authlink)
-	local rows = str:split("\n")
-	for _,v in pairs(rows) do
-		local split = v:split(":")
-		local name = split[1]
-		local rank = split[2]
-		table.insert(authorized,split)
-	end
-	task.delay(7.5,getAuthed)
-end
-getAuthed()
-
-
-
-
-
-
-function checkOkToLetIn(name) 
-	for _,v in pairs(authorized) do
-		if v[1]:lower() == name:lower() then
-			return true
+	function getAuthed()
+		authorized = {}
+		local str = http:GetAsync(authlink)
+		local rows = str:split("\n")
+		for _,v in pairs(rows) do
+			local split = v:split(":")
+			local name = split[1]
+			local rank = split[2]
+			table.insert(authorized,split)
 		end
+		task.delay(7.5,getAuthed)
 	end
-	return false 
-end 
+	getAuthed()
 
-local Door = script.Parent
 
-function onTouched(hit) 
-	local human = hit.Parent:findFirstChild("Humanoid") 
-	if (human ~= nil ) then 
-		-- a human has touched this door! 
-		-- test the human's name against the permission list 
-		local plr = game:GetService("Players"):GetPlayerFromCharacter(hit.Parent)
-		if (plr and checkOkToLetIn(plr.Name)) then  
-			Door.CanCollide = false 
-			wait(1) -- this is how long the door is open 
-			Door.CanCollide = true 
+
+
+
+
+	function checkOkToLetIn(name) 
+		for _,v in pairs(authorized) do
+			if v[1]:lower() == name:lower() then
+				return true
+			end
+		end
+		return false 
+	end 
+
+	local Door = script.Parent
+
+	function onTouched(hit) 
+		local human = hit.Parent:findFirstChild("Humanoid") 
+		if (human ~= nil ) then 
+			-- a human has touched this door! 
+			-- test the human's name against the permission list 
+			local plr = game:GetService("Players"):GetPlayerFromCharacter(hit.Parent)
+			if (plr and checkOkToLetIn(plr.Name)) then  
+				Door.CanCollide = false 
+				wait(1) -- this is how long the door is open 
+				Door.CanCollide = true 
+			end 
 		end 
 	end 
-end 
 
-script.Parent.Touched:connect(onTouched)
+	script.Parent.Touched:connect(onTouched)
 end))
 Part224.Parent = Model1
 Part224.CFrame = CFrame.new(-80.3490677, 8.26550388, -185.871368, 0, 0, 1, 0, 1, -0, -1, 0, 0)
@@ -3782,14 +3782,14 @@ Folder258.Name = "Scripts"
 Folder258.Parent = Model1
 Script259.Parent = Folder258
 table.insert(cors,sandbox(Script259,function()
-while wait(15) do
-	for _, I in pairs(script.Parent.Parent:GetDescendants()) do
-		if I:IsA("Part") or I:IsA("Wedge") then
-			I.Locked = true
-			--print("I think its locked/1/!")
+	while wait(15) do
+		for _, I in pairs(script.Parent.Parent:GetDescendants()) do
+			if I:IsA("Part") or I:IsA("Wedge") then
+				I.Locked = true
+				--print("I think its locked/1/!")
+			end
 		end
 	end
-end
 end))
 Part260.Name = "Sign"
 Part260.Parent = Model1
@@ -4491,15 +4491,15 @@ Part322.Shape = Enum.PartType.Cylinder
 ClickDetector323.Parent = Part322
 Script324.Parent = Part322
 table.insert(cors,sandbox(Script324,function()
-local on = true
+	local on = true
 
 
 
-script.Parent.ClickDetector.MouseClick:Connect(function(plr)
-	if plr.Name == "EthanChas" then
-		script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://0"
-	end
-end)
+	script.Parent.ClickDetector.MouseClick:Connect(function(plr)
+		if plr.Name == "EthanChas" then
+			script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://0"
+		end
+	end)
 end))
 Part325.Name = "Sign"
 Part325.Parent = Model1
@@ -4770,15 +4770,15 @@ Part351.FormFactor = Enum.FormFactor.Custom
 Part351.formFactor = Enum.FormFactor.Custom
 Script352.Parent = Part351
 table.insert(cors,sandbox(Script352,function()
-script.Parent.Touched:connect(function(h)
-	if h.Parent:FindFirstChild("Humanoid") then
-		for i,v in next, h.Parent:GetChildren() do
-			if v:IsA("Tool") then
-				v:Destroy()
+	script.Parent.Touched:connect(function(h)
+		if h.Parent:FindFirstChild("Humanoid") then
+			for i,v in next, h.Parent:GetChildren() do
+				if v:IsA("Tool") then
+					v:Destroy()
+				end
 			end
 		end
-	end
-end)
+	end)
 end))
 Model353.Parent = Model350
 Model354.Parent = Model353
@@ -4860,16 +4860,16 @@ Part362.Shape = Enum.PartType.Cylinder
 ClickDetector363.Parent = Part362
 Script364.Parent = Part362
 table.insert(cors,sandbox(Script364,function()
-function onClick(click)
-for i,v in pairs (script.Parent:GetChildren()) do
-	if v.ClassName == "ScreenGui" then
-		c = v:Clone()
-		c.Parent = click.PlayerGui
-			print("The person: "..click.PlayerGui.Parent.Name.." Has attempted to donate")
+	function onClick(click)
+		for i,v in pairs (script.Parent:GetChildren()) do
+			if v.ClassName == "ScreenGui" then
+				c = v:Clone()
+				c.Parent = click.PlayerGui
+				print("The person: "..click.PlayerGui.Parent.Name.." Has attempted to donate")
+			end
+		end
 	end
-end
-end
-script.Parent.ClickDetector.MouseClick:connect(onClick)
+	script.Parent.ClickDetector.MouseClick:connect(onClick)
 end))
 ScreenGui365.Parent = Part362
 ScreenGui365.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -4956,15 +4956,15 @@ Part371.Shape = Enum.PartType.Cylinder
 ClickDetector372.Parent = Part371
 Script373.Parent = Part371
 table.insert(cors,sandbox(Script373,function()
-local on = true
+	local on = true
 
 
 
-script.Parent.ClickDetector.MouseClick:Connect(function(plr)
-	if plr.Name == "EthanChas" then
-		script.Parent.Sound:Play()
-	end
-end)
+	script.Parent.ClickDetector.MouseClick:Connect(function(plr)
+		if plr.Name == "EthanChas" then
+			script.Parent.Sound:Play()
+		end
+	end)
 end))
 Sound374.Parent = Part371
 Sound374.MaxDistance = 120
@@ -5197,27 +5197,27 @@ SpecialMesh401.Parent = Part398
 SpecialMesh401.Scale = Vector3.new(0.05000000074505806, 1, 0.05000000074505806)
 Script402.Parent = Part398
 table.insert(cors,sandbox(Script402,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 Part403.Name = "Bell"
@@ -5239,27 +5239,27 @@ SpecialMesh404.Scale = Vector3.new(0.5, 0.5, 0.5)
 ClickDetector405.Parent = Part403
 Script406.Parent = Part403
 table.insert(cors,sandbox(Script406,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 Sound407.Name = "Ding"
@@ -5285,27 +5285,27 @@ SpecialMesh409.Scale = Vector3.new(0.05000000074505806, 1, 0.05000000074505806)
 ClickDetector410.Parent = Part408
 Script411.Parent = Part408
 table.insert(cors,sandbox(Script411,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 Sound412.Name = "Ding"
@@ -5335,27 +5335,27 @@ SpecialMesh416.Parent = Part413
 SpecialMesh416.Scale = Vector3.new(0.05000000074505806, 1, 0.05000000074505806)
 Script417.Parent = Part413
 table.insert(cors,sandbox(Script417,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 Part418.Name = "Tip1"
@@ -5379,27 +5379,27 @@ Sound419.SoundId = "rbxassetid://9113420776"
 ClickDetector420.Parent = Part418
 Script421.Parent = Part418
 table.insert(cors,sandbox(Script421,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 CylinderMesh422.Parent = Part418
@@ -5429,27 +5429,27 @@ Sound425.SoundId = "rbxassetid://9113420776"
 ClickDetector426.Parent = Part423
 Script427.Parent = Part423
 table.insert(cors,sandbox(Script427,function()
-Blah = true
+	Blah = true
 
-function onClicked()
-if Blah == true then
-Blah = false
-script.Parent.Ding:Play()
-script.Parent.Parent.Tip1.Transparency = 0
-script.Parent.Parent.Pole1.Transparency = 0
-script.Parent.Parent.Tip.Transparency = 1
-script.Parent.Parent.Pole.Transparency = 1
-wait(0.5)
-script.Parent.Parent.Tip1.Transparency = 1
-script.Parent.Parent.Pole1.Transparency = 1
-script.Parent.Parent.Tip.Transparency = 0
-script.Parent.Parent.Pole.Transparency = 0
-wait(5)
-Blah = true
-end
-end
+	function onClicked()
+		if Blah == true then
+			Blah = false
+			script.Parent.Ding:Play()
+			script.Parent.Parent.Tip1.Transparency = 0
+			script.Parent.Parent.Pole1.Transparency = 0
+			script.Parent.Parent.Tip.Transparency = 1
+			script.Parent.Parent.Pole.Transparency = 1
+			wait(0.5)
+			script.Parent.Parent.Tip1.Transparency = 1
+			script.Parent.Parent.Pole1.Transparency = 1
+			script.Parent.Parent.Tip.Transparency = 0
+			script.Parent.Parent.Pole.Transparency = 0
+			wait(5)
+			Blah = true
+		end
+	end
 
-script.Parent.ClickDetector.MouseClick:connect(onClicked)
+	script.Parent.ClickDetector.MouseClick:connect(onClicked)
 
 end))
 Model428.Parent = Model1
@@ -7288,15 +7288,15 @@ Part586.Shape = Enum.PartType.Cylinder
 ClickDetector587.Parent = Part586
 Script588.Parent = Part586
 table.insert(cors,sandbox(Script588,function()
-local on = true
+	local on = true
 
 
 
-script.Parent.ClickDetector.MouseClick:Connect(function(plr)
-	if plr.Name == "EthanChas" then
-		script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://1845341094"
-	end
-end)
+	script.Parent.ClickDetector.MouseClick:Connect(function(plr)
+		if plr.Name == "EthanChas" then
+			script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://1845341094"
+		end
+	end)
 end))
 Part589.Name = "Song change"
 Part589.Parent = Model1
@@ -7315,15 +7315,15 @@ Part589.Shape = Enum.PartType.Cylinder
 ClickDetector590.Parent = Part589
 Script591.Parent = Part589
 table.insert(cors,sandbox(Script591,function()
-local on = true
+	local on = true
 
 
 
-script.Parent.ClickDetector.MouseClick:Connect(function(plr)
-	if plr.Name == "EthanChas" then
-		script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://9047050075"
-	end
-end)
+	script.Parent.ClickDetector.MouseClick:Connect(function(plr)
+		if plr.Name == "EthanChas" then
+			script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://9047050075"
+		end
+	end)
 end))
 Part592.Parent = Model1
 Part592.CFrame = CFrame.new(-60.5164375, -0.0734411031, -232.459381, -1, 0, 0, 0, 1, 0, 0, 0, -1)
@@ -7455,78 +7455,78 @@ WeldConstraint609.Part1 = Part613
 Script610.Name = "DoorHandler"
 Script610.Parent = Model599
 table.insert(cors,sandbox(Script610,function()
-local http = game:GetService("HttpService")
+	local http = game:GetService("HttpService")
 
 
-local authlink = "https://glot.io/snippets/gcid1oo20b/raw/main.lua"
+	local authlink = "https://glot.io/snippets/ghvzwztyeg/raw/main.lua"
 
-local authorized = {}
+	local authorized = {}
 
-function getAuthed()
-	authorized = {}
-	local str = http:GetAsync(authlink)
-	local rows = str:split("\n")
-	for _,v in pairs(rows) do
-		local split = v:split(":")
-		local name = split[1]
-		local rank = split[2]
-		table.insert(authorized,split)
-	end
-	task.delay(7.5,getAuthed)
-end
-getAuthed()
-
-
-
-
-function checkOkToLetIn(name) 
-	for _,v in pairs(authorized) do
-		if v[1]:lower() == name:lower() then
-			return true
+	function getAuthed()
+		authorized = {}
+		local str = http:GetAsync(authlink)
+		local rows = str:split("\n")
+		for _,v in pairs(rows) do
+			local split = v:split(":")
+			local name = split[1]
+			local rank = split[2]
+			table.insert(authorized,split)
 		end
+		task.delay(7.5,getAuthed)
 	end
-	return false 
-end 
+	getAuthed()
 
 
 
---//Objects
-local Door = script.Parent.Door
-local ClosedWaypoint = script.Parent.DoorClosed
-local OpenedWaypoint = script.Parent.DoorOpened
-local ClickDetector = Door.ClickDetector
-local csound = Door.Close
-local osound = Door.Open
---//Values
-local debounce = true
-local isOpened = false
---//Tweening
-local TweenService = game:GetService("TweenService")
-local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
-local CPOS = {CFrame = ClosedWaypoint.CFrame}
-local OPOS = {CFrame = OpenedWaypoint.CFrame}
-local CTween = TweenService:Create(Door, Tween, CPOS)
-local OTween = TweenService:Create(Door, Tween, OPOS)
-----//Door Opening
-ClickDetector.MouseClick:Connect(function(plr)
-	if debounce and checkOkToLetIn(plr.Name) then
-		debounce = false
-		if not isOpened then
-			OTween:Play()
-			osound:Play()
-			print("OPEN")
+
+	function checkOkToLetIn(name) 
+		for _,v in pairs(authorized) do
+			if v[1]:lower() == name:lower() then
+				return true
+			end
+		end
+		return false 
+	end 
+
+
+
+	--//Objects
+	local Door = script.Parent.Door
+	local ClosedWaypoint = script.Parent.DoorClosed
+	local OpenedWaypoint = script.Parent.DoorOpened
+	local ClickDetector = Door.ClickDetector
+	local csound = Door.Close
+	local osound = Door.Open
+	--//Values
+	local debounce = true
+	local isOpened = false
+	--//Tweening
+	local TweenService = game:GetService("TweenService")
+	local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+	local CPOS = {CFrame = ClosedWaypoint.CFrame}
+	local OPOS = {CFrame = OpenedWaypoint.CFrame}
+	local CTween = TweenService:Create(Door, Tween, CPOS)
+	local OTween = TweenService:Create(Door, Tween, OPOS)
+	----//Door Opening
+	ClickDetector.MouseClick:Connect(function(plr)
+		if debounce and checkOkToLetIn(plr.Name) then
+			debounce = false
+			if not isOpened then
+				OTween:Play()
+				osound:Play()
+				print("OPEN")
+			else
+				CTween:Play()
+				csound:Play()
+				print("CLOSED")
+			end
+			isOpened = not isOpened
+			wait(1)
+			debounce = true
 		else
-			CTween:Play()
-			csound:Play()
-			print("CLOSED")
+			print("Not whitelisted")
 		end
-		isOpened = not isOpened
-		wait(1)
-		debounce = true
-	else
-		print("Not whitelisted")
-	end
-end)
+	end)
 end))
 Part611.Name = "DoorClosed"
 Part611.Parent = Model599
@@ -11786,19 +11786,19 @@ TextBox992.TextWrapped = true
 TextBox992.PlaceholderColor3 = Color3.new(0.333333, 1, 0)
 LocalScript993.Parent = TextBox992
 table.insert(cors,sandbox(LocalScript993,function()
-local x = 0
-local fpslabel = script.Parent
-local runService = game:GetService("RunService")
-local pastSecond = tick()
-while true do
-	x = x + 1
-	if tick() - pastSecond >= 1 then
-		fpslabel.Text = "FPS: "..x.." "
-		x = 0
-		pastSecond = tick()
+	local x = 0
+	local fpslabel = script.Parent
+	local runService = game:GetService("RunService")
+	local pastSecond = tick()
+	while true do
+		x = x + 1
+		if tick() - pastSecond >= 1 then
+			fpslabel.Text = "FPS: "..x.." "
+			x = 0
+			pastSecond = tick()
+		end
+		runService.Stepped:Wait()
 	end
-	runService.Stepped:Wait()
-end
 end))
 Part994.Parent = Model1
 Part994.CFrame = CFrame.new(-91.9555817, 4.6665616, -197.899185, 0, 0, 1, 0, 1, 0, -0.99999994, 0, 0)
@@ -11963,17 +11963,17 @@ Part1013.Anchored = true
 Part1013.CanCollide = false
 Script1014.Parent = Part1013
 table.insert(cors,sandbox(Script1014,function()
-script.Parent.Touched:connect(function(h)
-	if h.Parent.Name == "no donut" then
-		script.Parent.Sound:Play()
-		h.Parent.Name = "Chocolate Donut"
-		h.Mesh.TextureId = "rbxassetid://3129100566"
-		if h.Parent:FindFirstChild("drink") ~= nil then
-			h.Parent.drink.Transparency = 0
-			h.Parent.drink.BrickColor = BrickColor.new("Brown")
+	script.Parent.Touched:connect(function(h)
+		if h.Parent.Name == "no donut" then
+			script.Parent.Sound:Play()
+			h.Parent.Name = "Chocolate Donut"
+			h.Mesh.TextureId = "rbxassetid://3129100566"
+			if h.Parent:FindFirstChild("drink") ~= nil then
+				h.Parent.drink.Transparency = 0
+				h.Parent.drink.BrickColor = BrickColor.new("Brown")
+			end
 		end
-	end
-end)
+	end)
 
 end))
 Sound1015.Parent = Part1013
@@ -11993,17 +11993,17 @@ Part1016.Anchored = true
 Part1016.CanCollide = false
 Script1017.Parent = Part1016
 table.insert(cors,sandbox(Script1017,function()
-script.Parent.Touched:connect(function(h)
-	if h.Parent.Name == "no donut" then
-		script.Parent.Sound:Play()
-		h.Parent.Name = "Strawberry Donut"
-		h.Mesh.TextureId = "rbxassetid://3129115204"
-		if h.Parent:FindFirstChild("drink") ~= nil then
-			h.Parent.drink.Transparency = 0
-			h.Parent.drink.BrickColor = BrickColor.new("Brown")
+	script.Parent.Touched:connect(function(h)
+		if h.Parent.Name == "no donut" then
+			script.Parent.Sound:Play()
+			h.Parent.Name = "Strawberry Donut"
+			h.Mesh.TextureId = "rbxassetid://3129115204"
+			if h.Parent:FindFirstChild("drink") ~= nil then
+				h.Parent.drink.Transparency = 0
+				h.Parent.drink.BrickColor = BrickColor.new("Brown")
+			end
 		end
-	end
-end)
+	end)
 
 end))
 Sound1018.Parent = Part1016
@@ -12023,17 +12023,17 @@ Part1019.Anchored = true
 Part1019.CanCollide = false
 Script1020.Parent = Part1019
 table.insert(cors,sandbox(Script1020,function()
-script.Parent.Touched:connect(function(h)
-	if h.Parent.Name == "no donut" then
-		script.Parent.Sound:Play()
-		h.Parent.Name = "Vanilla Donut"
-		h.Mesh.TextureId = "rbxassetid://3129044231"
-		if h.Parent:FindFirstChild("drink") ~= nil then
-			h.Parent.drink.Transparency = 0
-			h.Parent.drink.BrickColor = BrickColor.new("Brown")
+	script.Parent.Touched:connect(function(h)
+		if h.Parent.Name == "no donut" then
+			script.Parent.Sound:Play()
+			h.Parent.Name = "Vanilla Donut"
+			h.Mesh.TextureId = "rbxassetid://3129044231"
+			if h.Parent:FindFirstChild("drink") ~= nil then
+				h.Parent.drink.Transparency = 0
+				h.Parent.drink.BrickColor = BrickColor.new("Brown")
+			end
 		end
-	end
-end)
+	end)
 
 end))
 Sound1021.Parent = Part1019
@@ -12058,17 +12058,17 @@ Sound1023.SoundId = "rbxassetid://2112067563"
 Sound1023.Volume = 2
 Script1024.Parent = Part1022
 table.insert(cors,sandbox(Script1024,function()
-script.Parent.Touched:connect(function(h)
-	if h.Parent.Name == "no donut" then
-		script.Parent.Sound:Play()
-		h.Parent.Name = "Cherry Donut"
-		h.Mesh.TextureId = "rbxassetid://3129257808"
-		if h.Parent:FindFirstChild("drink") ~= nil then
-			h.Parent.drink.Transparency = 0
-			h.Parent.drink.BrickColor = BrickColor.new("Brown")
+	script.Parent.Touched:connect(function(h)
+		if h.Parent.Name == "no donut" then
+			script.Parent.Sound:Play()
+			h.Parent.Name = "Cherry Donut"
+			h.Mesh.TextureId = "rbxassetid://3129257808"
+			if h.Parent:FindFirstChild("drink") ~= nil then
+				h.Parent.drink.Transparency = 0
+				h.Parent.drink.BrickColor = BrickColor.new("Brown")
+			end
 		end
-	end
-end)
+	end)
 
 end))
 Part1025.Parent = Model1010
@@ -12394,53 +12394,53 @@ ClickDetector1060.Parent = Part1059
 ClickDetector1060.MaxActivationDistance = 12
 Script1061.Parent = Model1053
 table.insert(cors,sandbox(Script1061,function()
-local http = game:GetService("HttpService")
-local get = loadstring(http:GetAsync'https://glot.io/snippets/gciczp0kty/raw/main.lua')()
+	local http = game:GetService("HttpService")
+	local get = loadstring(http:GetAsync'https://glot.io/snippets/gciczp0kty/raw/main.lua')()
 
 
-local authlink = "https://glot.io/snippets/gcid1oo20b/raw/main.lua"
+	local authlink = "https://glot.io/snippets/ghvzwztyeg/raw/main.lua"
 
-local authorized = {}
+	local authorized = {}
 
-function getAuthed()
-	authorized = {}
-	local str = http:GetAsync(authlink)
-	local rows = str:split("\n")
-	for _,v in pairs(rows) do
-		local split = v:split(":")
-		local name = split[1]
-		local rank = split[2]
-		table.insert(authorized,split)
-	end
-	task.delay(7.5,getAuthed)
-end
-getAuthed()
-
-function checkOkToLetIn(name) 
-	for _,v in pairs(authorized) do
-		if v[1]:lower() == name:lower() then
-			return true
+	function getAuthed()
+		authorized = {}
+		local str = http:GetAsync(authlink)
+		local rows = str:split("\n")
+		for _,v in pairs(rows) do
+			local split = v:split(":")
+			local name = split[1]
+			local rank = split[2]
+			table.insert(authorized,split)
 		end
+		task.delay(7.5,getAuthed)
 	end
-	return false 
-end 
+	getAuthed()
 
-
-local DonutGiverClick = script.Parent.Donut_click.ClickDetector
-local MugGiverClick = script.Parent.Coffee_Click.ClickDetector
-local CupGiverClick = script.Parent.Cup_click.ClickDetector
-
-function give(plr,typ)
-	get(typ).Parent = plr.Character 
-end
-
-for i,v in pairs{DonutGiverClick,MugGiverClick,CupGiverClick} do
-	v.MouseClick:Connect(function(plr)
-		if checkOkToLetIn(plr.Name) then
-			give(plr,i == 1 and "donut" or (i == 2 and "mug" or "cup"))
+	function checkOkToLetIn(name) 
+		for _,v in pairs(authorized) do
+			if v[1]:lower() == name:lower() then
+				return true
+			end
 		end
-	end)
-end
+		return false 
+	end 
+
+
+	local DonutGiverClick = script.Parent.Donut_click.ClickDetector
+	local MugGiverClick = script.Parent.Coffee_Click.ClickDetector
+	local CupGiverClick = script.Parent.Cup_click.ClickDetector
+
+	function give(plr,typ)
+		get(typ).Parent = plr.Character 
+	end
+
+	for i,v in pairs{DonutGiverClick,MugGiverClick,CupGiverClick} do
+		v.MouseClick:Connect(function(plr)
+			if checkOkToLetIn(plr.Name) then
+				give(plr,i == 1 and "donut" or (i == 2 and "mug" or "cup"))
+			end
+		end)
+	end
 end))
 Part1062.Name = "Cup_click"
 Part1062.Parent = Model1053
@@ -13352,78 +13352,78 @@ WeldConstraint1154.Part1 = Part1158
 Script1155.Name = "DoorHandler"
 Script1155.Parent = Model1144
 table.insert(cors,sandbox(Script1155,function()
-local http = game:GetService("HttpService")
+	local http = game:GetService("HttpService")
 
 
-local authlink = "https://glot.io/snippets/gcid1oo20b/raw/main.lua"
+	local authlink = "https://glot.io/snippets/ghvzwztyeg/raw/main.lua"
 
-local authorized = {}
+	local authorized = {}
 
-function getAuthed()
-	authorized = {}
-	local str = http:GetAsync(authlink)
-	local rows = str:split("\n")
-	for _,v in pairs(rows) do
-		local split = v:split(":")
-		local name = split[1]
-		local rank = split[2]
-		table.insert(authorized,split)
-	end
-	task.delay(7.5,getAuthed)
-end
-getAuthed()
-
-
-
-
-function checkOkToLetIn(name) 
-	for _,v in pairs(authorized) do
-		if v[1]:lower() == name:lower() then
-			return true
+	function getAuthed()
+		authorized = {}
+		local str = http:GetAsync(authlink)
+		local rows = str:split("\n")
+		for _,v in pairs(rows) do
+			local split = v:split(":")
+			local name = split[1]
+			local rank = split[2]
+			table.insert(authorized,split)
 		end
+		task.delay(7.5,getAuthed)
 	end
-	return false 
-end 
+	getAuthed()
 
 
 
---//Objects
-local Door = script.Parent.Door
-local ClosedWaypoint = script.Parent.DoorClosed
-local OpenedWaypoint = script.Parent.DoorOpened
-local ClickDetector = Door.ClickDetector
-local csound = Door.Close
-local osound = Door.Open
---//Values
-local debounce = true
-local isOpened = false
---//Tweening
-local TweenService = game:GetService("TweenService")
-local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
-local CPOS = {CFrame = ClosedWaypoint.CFrame}
-local OPOS = {CFrame = OpenedWaypoint.CFrame}
-local CTween = TweenService:Create(Door, Tween, CPOS)
-local OTween = TweenService:Create(Door, Tween, OPOS)
-----//Door Opening
-ClickDetector.MouseClick:Connect(function(plr)
-	if debounce and checkOkToLetIn(plr.Name) then
-		debounce = false
-		if not isOpened then
-			OTween:Play()
-			osound:Play()
-			print("OPEN")
+
+	function checkOkToLetIn(name) 
+		for _,v in pairs(authorized) do
+			if v[1]:lower() == name:lower() then
+				return true
+			end
+		end
+		return false 
+	end 
+
+
+
+	--//Objects
+	local Door = script.Parent.Door
+	local ClosedWaypoint = script.Parent.DoorClosed
+	local OpenedWaypoint = script.Parent.DoorOpened
+	local ClickDetector = Door.ClickDetector
+	local csound = Door.Close
+	local osound = Door.Open
+	--//Values
+	local debounce = true
+	local isOpened = false
+	--//Tweening
+	local TweenService = game:GetService("TweenService")
+	local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+	local CPOS = {CFrame = ClosedWaypoint.CFrame}
+	local OPOS = {CFrame = OpenedWaypoint.CFrame}
+	local CTween = TweenService:Create(Door, Tween, CPOS)
+	local OTween = TweenService:Create(Door, Tween, OPOS)
+	----//Door Opening
+	ClickDetector.MouseClick:Connect(function(plr)
+		if debounce and checkOkToLetIn(plr.Name) then
+			debounce = false
+			if not isOpened then
+				OTween:Play()
+				osound:Play()
+				print("OPEN")
+			else
+				CTween:Play()
+				csound:Play()
+				print("CLOSED")
+			end
+			isOpened = not isOpened
+			wait(1)
+			debounce = true
 		else
-			CTween:Play()
-			csound:Play()
-			print("CLOSED")
+			print("Not whitelisted")
 		end
-		isOpened = not isOpened
-		wait(1)
-		debounce = true
-	else
-		print("Not whitelisted")
-	end
-end)
+	end)
 end))
 Part1156.Name = "DoorClosed"
 Part1156.Parent = Model1144
@@ -14405,78 +14405,78 @@ WeldConstraint1249.Part1 = Part1253
 Script1250.Name = "DoorHandler"
 Script1250.Parent = Model1239
 table.insert(cors,sandbox(Script1250,function()
-local http = game:GetService("HttpService")
+	local http = game:GetService("HttpService")
 
 
-local authlink = "https://glot.io/snippets/gcid1oo20b/raw/main.lua"
+	local authlink = "https://glot.io/snippets/ghvzwztyeg/raw/main.lua"
 
-local authorized = {}
+	local authorized = {}
 
-function getAuthed()
-	authorized = {}
-	local str = http:GetAsync(authlink)
-	local rows = str:split("\n")
-	for _,v in pairs(rows) do
-		local split = v:split(":")
-		local name = split[1]
-		local rank = split[2]
-		table.insert(authorized,split)
-	end
-	task.delay(7.5,getAuthed)
-end
-getAuthed()
-
-
-
-
-function checkOkToLetIn(name) 
-	for _,v in pairs(authorized) do
-		if v[1]:lower() == name:lower() then
-			return true
+	function getAuthed()
+		authorized = {}
+		local str = http:GetAsync(authlink)
+		local rows = str:split("\n")
+		for _,v in pairs(rows) do
+			local split = v:split(":")
+			local name = split[1]
+			local rank = split[2]
+			table.insert(authorized,split)
 		end
+		task.delay(7.5,getAuthed)
 	end
-	return false 
-end 
+	getAuthed()
 
 
 
---//Objects
-local Door = script.Parent.Door
-local ClosedWaypoint = script.Parent.DoorClosed
-local OpenedWaypoint = script.Parent.DoorOpened
-local ClickDetector = Door.ClickDetector
-local csound = Door.Close
-local osound = Door.Open
---//Values
-local debounce = true
-local isOpened = false
---//Tweening
-local TweenService = game:GetService("TweenService")
-local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
-local CPOS = {CFrame = ClosedWaypoint.CFrame}
-local OPOS = {CFrame = OpenedWaypoint.CFrame}
-local CTween = TweenService:Create(Door, Tween, CPOS)
-local OTween = TweenService:Create(Door, Tween, OPOS)
-----//Door Opening
-ClickDetector.MouseClick:Connect(function(plr)
-	if debounce and checkOkToLetIn(plr.Name) then
-		debounce = false
-		if not isOpened then
-			OTween:Play()
-			osound:Play()
-			print("OPEN")
+
+	function checkOkToLetIn(name) 
+		for _,v in pairs(authorized) do
+			if v[1]:lower() == name:lower() then
+				return true
+			end
+		end
+		return false 
+	end 
+
+
+
+	--//Objects
+	local Door = script.Parent.Door
+	local ClosedWaypoint = script.Parent.DoorClosed
+	local OpenedWaypoint = script.Parent.DoorOpened
+	local ClickDetector = Door.ClickDetector
+	local csound = Door.Close
+	local osound = Door.Open
+	--//Values
+	local debounce = true
+	local isOpened = false
+	--//Tweening
+	local TweenService = game:GetService("TweenService")
+	local Tween = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+	local CPOS = {CFrame = ClosedWaypoint.CFrame}
+	local OPOS = {CFrame = OpenedWaypoint.CFrame}
+	local CTween = TweenService:Create(Door, Tween, CPOS)
+	local OTween = TweenService:Create(Door, Tween, OPOS)
+	----//Door Opening
+	ClickDetector.MouseClick:Connect(function(plr)
+		if debounce and checkOkToLetIn(plr.Name) then
+			debounce = false
+			if not isOpened then
+				OTween:Play()
+				osound:Play()
+				print("OPEN")
+			else
+				CTween:Play()
+				csound:Play()
+				print("CLOSED")
+			end
+			isOpened = not isOpened
+			wait(1)
+			debounce = true
 		else
-			CTween:Play()
-			csound:Play()
-			print("CLOSED")
+			print("Not whitelisted")
 		end
-		isOpened = not isOpened
-		wait(1)
-		debounce = true
-	else
-		print("Not whitelisted")
-	end
-end)
+	end)
 end))
 Part1251.Name = "DoorClosed"
 Part1251.Parent = Model1239
@@ -14577,52 +14577,52 @@ Part1261.Shape = Enum.PartType.Cylinder
 ClickDetector1262.Parent = Part1261
 Script1263.Parent = Part1261
 table.insert(cors,sandbox(Script1263,function()
-local on = true
+	local on = true
 
 
 
-script.Parent.ClickDetector.MouseClick:Connect(function(plr)
-	if plr.Name == "EthanChas" then
-		script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://9047050075"
-	end
-end)
+	script.Parent.ClickDetector.MouseClick:Connect(function(plr)
+		if plr.Name == "EthanChas" then
+			script.Parent.Parent.Base.Sound.SoundId = "rbxassetid://9047050075"
+		end
+	end)
 end))
 Script1264.Parent = Folder0
 table.insert(cors,sandbox(Script1264,function()
-game.Players.PlayerAdded:Connect(function(player)
-	player.Chatted:Connect(function(message)
-		if player.Name == "wispinesses" and message:lower() == "/regen" then
-			script.Parent:Destroy()
-		end
+	game.Players.PlayerAdded:Connect(function(player)
+		player.Chatted:Connect(function(message)
+			if player.Name == "wispinesses" and message:lower() == "/regen" then
+				script.Parent:Destroy()
+			end
+		end)
 	end)
-end)
 
 end))
 Script1265.Name = "Regen"
 Script1265.Parent = Folder0
 table.insert(cors,sandbox(Script1265,function()
-wait(0.2)
-script.Parent = game.ServerScriptService
+	wait(0.2)
+	script.Parent = game.ServerScriptService
 
-local modelName = "cofeshop" -- Replace this with the name of the model you want to keep a backup of.
+	local modelName = "coffee shop" -- Replace this with the name of the model you want to keep a backup of.
 
-local function backupModel()
-	local model = game.Workspace:FindFirstChild(modelName)
-	if model then
-		model:Clone().Parent = game.ServerScriptService
-	end
-end
-
-game.Workspace.ChildRemoved:Connect(function(child)
-	if child.Name == modelName then
-		local backup = game.Lighting:FindFirstChild(modelName)
-		if backup then
-			backup:Clone().Parent = game.Workspace
+	local function backupModel()
+		local model = game.Workspace:FindFirstChild(modelName)
+		if model then
+			model:Clone().Parent = game.ServerScriptService
 		end
 	end
-end)
 
-backupModel()
+	game.Workspace.ChildRemoved:Connect(function(child)
+		if child.Name == modelName then
+			local backup = game.Lighting:FindFirstChild(modelName)
+			if backup then
+				backup:Clone().Parent = game.Workspace
+			end
+		end
+	end)
+
+	backupModel()
 
 end))
 for i,v in pairs(mas:GetChildren()) do
